@@ -1,0 +1,58 @@
+#set($layout = "/layout/allBlank.vm")
+<!doctype html>
+#parse("/common/init.vm")
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        #parse("/common/common/common-css.vm")
+		<link type="text/css" rel="stylesheet" media="screen" href="${R}/css/common.css" />
+		<link type="text/css" rel="stylesheet" media="screen" href="${R}/css/regist.css" />
+		#parse("/common/common/common-js.vm")
+		<script type="text/javascript">
+			var errCode = "$!{err-code}";
+		</script>
+        <script type="text/javascript" src="${R}/js/regist.js"></script>
+		<title>$page_title</title>
+    </head>
+    <body class="regist-body">
+        <div class="regist-head">
+			<a href="${path}" title="webxx">
+                <div class="regist-img">
+        			<img src="${R}/images/squirrel.png" width="70px" height="70px" />
+                    <img src="${R}/images/webxx.png" width="70px" height="23px" />
+    			</div>
+            </a>
+		</div>
+        <div class="regist-form-div">
+        <form id="registForm" action="${path}/regist" method="post" class="form-inline">
+            <div class="div-30 form-group has-error">
+				<span id="helpBlock" class="help-block"></span>
+			</div>
+			<div class="form-group regist-div">
+				<label class="sr-only" for="email">邮箱</label>
+            	<input type="email" id="email" onblur="checkMail()" valid="valid" valid-rule="require max[50] type[email]" placeholder="邮箱" name="mail" class="form-control" style="width:100%;height:45px"/>
+				<span id="helpBlock1" class="help-block"></span>
+            </div>
+			<div class="form-group regist-div">
+				<label class="sr-only" for="email">用户名</label>
+            	<input type="name" id="name" valid="valid" valid-rule="require max[50]" placeholder="用户名" name="name" class="form-control" style="width:100%;height:45px"/>
+				<span id="helpBlock4" class="help-block"></span>
+            </div>
+			<div class="form-group regist-div">
+				<label class="sr-only" for="password">密码</label>
+    			<input type="password" id="password" name="password" valid="valid" valid-rule="require max[20]"  placeholder="密码" class="form-control" style="width:100%;height:45px"/>
+				<span id="helpBlock2" class="help-block"></span>
+            </div>
+			<div class="form-group regist-div">
+				<label class="sr-only" for="password-confirm">确认密码</label>
+                <input type="password" id="password-confirm" name="confirmPassword" valid="valid" valid-rule="require max[20]" placeholder="确认密码" class="form-control" style="width:100%;height:45px"/>           
+				<span id="helpBlock3" class="help-block"></span>
+			</div>
+			<button type="button" id="regist-submit-button" class="btn btn-primary regist-button" onclick="submitFunc()">注册</button>
+            <div class="div-10"></div>
+			<a href="${path}" title="立即登录">立即登录</a>
+		</form>
+		
+		</div>
+	</body>
+</html>

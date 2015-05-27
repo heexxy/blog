@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.he.webx.mapper.PersonMapper">
+
+	<resultMap type="Person" id="personResultMap">
+		<result property="id" column="U_ID" jdbcType="VARCHAR" />
+		<result property="mail" column="U_MAIL" jdbcType="VARCHAR" />
+		<result property="password" column="U_PASSWORD" jdbcType="VARCHAR" />
+		<result property="name" column="U_NAME" jdbcType="VARCHAR" />
+		<result property="createTime" column="U_CREATE_TIME" jdbcType="TIMESTAMP" />
+		<result property="loginTime" column="U_LAST_LOGIN_TIME" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<sql id="all">
+		U_ID,U_MAIL,U_PASSWORD,U_NAME,U_CREATE_TIME,U_LAST_LOGIN_TIME
+	</sql>
+	
+	<sql id="regist">
+		U_ID,U_MAIL,U_PASSWORD,U_NAME,U_CREATE_TIME,U_LAST_LOGIN_TIME
+	</sql>
+	
+	<select id="getPersonByMail" parameterType = "String" resultMap="personResultMap">
+		SELECT
+		<include refid="all" />
+		FROM USERS p
+		WHERE p.U_MAIL = #{mail}
+	</select>
+	
+	<insert id="insertPerson" parameterType="person">
+		INSERT INTO USERS (
+			<include refid="regist" />
+		) VALUES (
+			#{id} ,#{mail},#{password},#{name},#{createTime},#{loginTime}
+		)
+	</insert>
+	
+	<update id="updatePerson" parameterType="person">
+		UPDATE USERS 
+		SET U_PASSWORD = #{password} , U_NAME = #{name} , U_LAST_LOGIN_TIME = #{loginTime} 
+		WHERE U_ID = #{id}
+		
+	</update>
+
+</mapper>

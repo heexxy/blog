@@ -1,0 +1,11 @@
+#parse("/common/init.vm")
+#parse("/cms/article/common/article-setting.vm")
+<script type="text/javascript" src="${R}/plugin/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+//初始化富文本编辑器以及下拉框
+jQuery(function(){
+	CKEDITOR.replace('ckeditor');
+	$("select").select2({dropdownCssClass: 'dropdown-inverse'});
+});
+
+</script>

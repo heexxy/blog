@@ -1,0 +1,36 @@
+#parse("/common/init.vm")
+#set($layout = "/layout/person-layout.vm")
+#set($page_setting = "/cms/article/common/article-setting.vm")
+
+<table width="100%" class="article-table">
+	<tr class="bg-blue article-table-title">
+        <td width="35%">标题</td>
+		<td width="10%">类型</td>
+		<td width="20%">发布日期</td>
+		<td width="5%">点击数</td>
+		<td width="10%">置顶</td>
+		<td width="20%">操作</td>
+    </tr>
+#foreach($!{article} in $!{page.result})
+	<tr>
+        <td style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><a href="${path}/article/$!{article.id}" target="_blank">$!{article.title}</a></td>
+        <td >#itemCode($!{article.itemId})</td>
+        <td >$dateTool.format("yyyy / MM / dd HH:mm:ss",$!{article.publishTime})</td>
+		<td >$!{article.clickCount}</td>
+		<td >
+			<div class="bootstrap-switch-square">
+				<input type="checkbox" data-toggle="switch" #if($!{article.top} == "1") checked #end onchange="topControl($!{article.id},this)"/>
+			</div>
+		</td>
+		<td >
+			<a class="btn btn-inverse" href="${path}/article/edit/$!{article.id}">修改</a>
+			#if($!{article.isPublish} == "1")
+    			<button class="btn btn-danger" type="button" onclick="controlButton($!{article.id},'undo')">撤销</button>
+			#else
+    			<button class="btn btn-primary" type="button" onclick="controlButton($!{article.id},'publish')">发布</button>
+			#end
+		</td>
+    </tr>
+#end
+</table>
+#page()

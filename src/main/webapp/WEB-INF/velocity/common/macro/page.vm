@@ -1,0 +1,56 @@
+##翻页
+#macro(page)
+	<div class="text-center">
+    ##大于一页的情况
+    #if($page.total > $page.size)
+    	
+    	##判断是否有其他参数
+        #if(!$page.requestURL.endsWith("?"))
+          #set($page.requestURL = $page.requestURL + "&")
+        #end
+        #if($page.currentPage > $page.totalPage)
+          #set($page.currentPage = $page.totalPage)
+    	#end
+    	
+    	<div class="pagination">
+    		<ul>
+    			##首页
+    			<li class="previous"><a href="${page.requestURL}page=1" title="首页">首页</a></li>
+    			
+    			##设置开始页码
+    			#set($start_ = $page.currentPage - 4)
+    			#if($start_ < 1)
+    				#set($start_ = 1)
+    			#end
+    			
+    			##设置结束页码
+    			#set($end_ = $page.currentPage + 4)
+    			#if($end_ > $page.totalPage)
+    				#set($end_ = $page.totalPage)
+    			#end
+    			
+    			#set($mid_ = [$start_..$end_])
+    			
+    			#foreach($_mid in $mid_)
+    				<li #if($_mid == $page.currentPage) class="active" #end><a href="${page.requestURL}page=$_mid">$_mid</a></li>
+    			#end
+    			
+    			##末页
+        		<li class="next"><a href="${page.requestURL}page=$page.totalPage" title="末页">末页</a></li>
+    		</ul>
+    	</div>
+    	
+    ##只有一页的情况
+    #elseif($page.total > 0)
+    	<div class="pagination">
+    		<ul>
+    			<li class="previous"><a href="#" class="fui-arrow-left"></a></li>
+    			<li class="active"><a href="#">1</a></li>
+    			<li class="pagination-dropdown dropup">
+    			<li class="next"><a href="#" class="fui-arrow-right"></a></li>
+    		</ul>
+    	</div>
+	#end
+    </div>
+#end
+

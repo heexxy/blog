@@ -1,0 +1,46 @@
+#parse("/common/init.vm")
+<div class="head center">
+    <div class="body">
+        <div style="float:left">
+			<a href="${path}"><img src="${R}/images/squirrel.png" width="53px" height="53px" /></a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-collapse-9">
+			<ul class="nav navbar-nav">
+            <li><a href="${path}">首页</a></li>
+          </ul>
+		  <!-- 用户开始 -->
+            <form id="index-login-form" class="navbar-form navbar-right" data-toggle="tooltip" data-placement="bottom" title="提示" data-content="">
+              #if($person_session)
+              <div id="login-after" class="text-right login-after" style="width:200px">
+				<button id="new-article-button" type="button" class="btn btn-info">新文章</button>
+				<a class="btn btn-info"id="user-button" style="padding-top:8px" href="${path}/person/index">
+					用户管理
+				</a>
+				<ul class="dropdown-menu" role="menu" id="menu-down" style="right: inherit">
+					<li><a href="${path}/logout">退出</a></li>
+				</ul>
+			  </div>
+			  #else
+				<div id="login-before">
+                  <button id="index-login-button" type="button" class="btn btn-primary">登录</button>
+                  <button id="index-regist-button" type="button" class="btn btn-info">注册</button>
+                </div>
+			  #end
+            </form>
+			<!-- 用户结束 -->
+		  <!-- 搜索框开始 -->
+		  <form class="navbar-form navbar-right" action="#" role="search">
+			<div class="form-group">
+				<div class="input-group">
+					<input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+						<span class="input-group-btn">
+							<button type="submit" class="btn"><span class="fui-search"></span></button>
+						</span>
+        		</div>
+			</div>
+   		  </form>
+		  <!-- 搜索框结束 -->
+          </div>
+	</div>
+</div> 
+	

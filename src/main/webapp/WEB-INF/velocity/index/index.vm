@@ -1,0 +1,2 @@
+#parse("/common/init.vm")
+#parse("/cms/article/list.vm")

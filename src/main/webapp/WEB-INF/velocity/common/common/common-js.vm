@@ -1,0 +1,11 @@
+#parse("/common/init.vm")
+<script type="text/javascript" src="${R}/js/jquery.min.js"></script>
+<script type="text/javascript" src="${R}/js/base.js"></script>
+<script type="text/javascript" src="${R}/js/common.js"></script>
+<script type="text/javascript" src="${R}/plugin/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${R}/plugin/flatUI/js/flat-ui.min.js"></script>
+<script type="text/javascript" src="${R}/js/md5.js"></script>
+<script type="text/javascript" src="${R}/js/validator.js"></script>
+<script type="text/javascript">
+	var path = "${path}";
+</script>

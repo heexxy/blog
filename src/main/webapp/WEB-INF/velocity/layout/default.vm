@@ -1,0 +1,22 @@
+<!doctype html>
+#parse("/common/init.vm")
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		#parse("/common/common/common-css.vm")
+		#parse("/common/common/common-js.vm")
+		#parse($!{page_setting})
+		<title>$page_title</title>
+    </head>
+    <body>
+		#if($person_session)
+			#parse("/common/header-user.vm")
+		#else
+    		#parse("/common/header.vm")
+		#end
+		<div class="body body-div"> 
+			$screen_content
+		</div>
+        #parse("/common/footer.vm")
+	</body>
+</html>

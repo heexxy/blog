@@ -1,0 +1,7 @@
+#parse("/common/init.vm")
+#set($layout = "/layout/person-layout.vm")
+<div class="person-index-head-div">
+    <div class="person-index-photo">
+		<img src="${R}/images/head.gif" width="160px" height="160px" style="">
+	</div>
+</div>

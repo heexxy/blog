@@ -1,0 +1,15 @@
+##网站名称
+#set($page_title = "webx")
+#set($page_description = "webx xxxx")
+
+##项目目录
+#set($path = $request.contextPath)
+
+##资源地址
+#set($R = "http://127.0.0.1:8089")
+
+##登录用户session
+#set($person_session = $session.getAttribute("person"))
+
+##是否加载校验插件
+#set($is_valid = false)

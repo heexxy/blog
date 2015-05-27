@@ -1,0 +1,26 @@
+#parse("/common/init.vm")
+<div class="head center">
+    <div class="body">
+        <div style="float:left">
+			<a href="${path}"><img src="${R}/images/squirrel.png" width="53px" height="53px" /></a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-collapse-9">
+			<ul class="nav navbar-nav">
+            <li><a href="${path}">首页</a></li>
+          </ul>
+		  <!-- 搜索框开始 -->
+		  <form class="navbar-form navbar-right" role="search">
+			<div class="form-group">
+				<div class="input-group">
+					<input class="form-control" id="search-input" type="search" placeholder="Search">
+						<span class="input-group-btn">
+							<button type="button" class="btn" onclick="searchFunc()"><span class="fui-search"></span></button>
+						</span>
+        		</div>
+			</div>
+   		  </form>
+		  <!-- 搜索框结束 -->
+          </div>
+	</div>
+</div> 
+	

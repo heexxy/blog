@@ -1,0 +1,25 @@
+#macro(item)
+	<option value="01">技术</option>
+	<option value="02">闲话</option>
+#end
+
+#macro(itemSelect $value)
+	<option value="01" #if($value == "01") selected="selected" #end>技术</option>
+	<option value="02" #if($value == "02") selected="selected" #end>闲话</option>
+#end
+
+#macro(itemCode $value)
+	#if($value == "01")
+		技术
+	#elseif($value == "02")
+		闲话
+	#end
+#end
+
+#macro(yesNo $value)
+	#if($value == "1")
+        <span class="green">True</span>
+	#else
+        <span class="red">False</span>
+	#end
+#end

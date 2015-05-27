@@ -1,0 +1,18 @@
+#parse("/common/init.vm")
+<form action="${path}/login-check" method="post">
+    <table>
+        <tr>
+            <td>邮箱：</td>
+            <td><input type="text" name="mail" /></td>
+		</tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="password" /></td>
+		</tr>
+		<tr>
+            <td colspan="2">
+                <button type="submit">提交</button>
+			</td>
+		</tr>
+	</table>
+</form>

@@ -1,0 +1,4 @@
+<link type="text/css" rel="stylesheet" media="screen" href="${R}/css/person.css" />
+<script type="text/javascript" src="${R}/js/person.js"></script>
+<script type="text/javascript" src="${R}/plugin/highchart/highcharts.js"></script>
+<script type="text/javascript" src="${R}/plugin/highchart/highcharts-3d.js"></script>

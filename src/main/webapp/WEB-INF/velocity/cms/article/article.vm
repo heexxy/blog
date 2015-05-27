@@ -1,0 +1,35 @@
+#parse("/common/init.vm")
+#set($page_setting = "/cms/article/common/article-setting.vm")
+<div class="nav-div">
+	<div class="nav-item">
+        <a href="${path}">目录</a>
+    </div>
+	<div class="nav-page">
+		<a href="${path}/article/next?id=$!{article.id}&type=next&item=$!{article.item}">下一篇</a>
+    </div>
+	<div class="nav-page">
+		<a href="${path}/article/next?id=$!{article.id}&type=before&item=$!{article.item}">上一篇</a>
+    </div>
+</div>
+<h3 style="text-align:center">
+	$!{article.title}
+</h3>
+<div class="intro-div">
+	<img src="${R}/images/tag.png" width="23px" height="23px"/>
+	#if($!{article.tags})
+		#foreach($!tag in $!article.tags.split(","))
+			<a href="${path}/search/tags?tag=$!tag"><span class="article-label bg-grey">$!tag</span></a>
+		#end
+	#end
+	<div class="intro-right">
+    	由  &nbsp;$!{article.author}&nbsp;发布于 &nbsp;$!dateTool.format("yyyy / MM / dd",$!{article.publishTime}) &nbsp;|&nbsp;
+		#if($!{article.editTime})
+		更新于 &nbsp;$!dateTool.format("yyyy / MM / dd",$!{article.editTime}) &nbsp;|&nbsp;
+		#end
+		点击数&nbsp;$!{article.clickCount}
+    </div>
+</div>
+
+<div>
+</div>
+$!{article.content}

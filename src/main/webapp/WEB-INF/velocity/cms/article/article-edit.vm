@@ -1,0 +1,29 @@
+#parse("/common/init.vm")
+#set($page_setting = "/cms/article/common/edit-setting.vm")
+#set($layout = "/layout/person-layout.vm")
+
+<form id="article-form" action="${path}/article/edit/post" method="post">
+    <h6>标题：</h6>
+    <input class="form-control" type="text" placeholder="标题" name="title" value="$!{article.title}"/>
+    <h6>副标题：</h6>
+    <input class="form-control" type="text" placeholder="副标题" name="subTitle" value="$!{article.subTitle}"/>
+    <h6>摘要：</h6>
+    <input class="form-control" type="text" placeholder="摘要" name="summary" value="$!{article.summary}" />
+    <h6>分类：</h6>
+	<select class="form-control select select-primary select-block mbl" name="item" value="$!{article.itemId}">
+		#itemSelect($!{article.itemId})
+	</select>
+    <h6>标签：</h6>
+    <div class="tagsinput-primary">
+    	<input id="tags" name="tagsinput" class="tagsinput" data-role="tagsinput" placeholder="标签" value="$!{article.tags}"/>
+    </div>
+    <h6>内容：</h6>
+    <textarea id="ckeditor" class="ckeditor">$!{article.content}</textarea>
+    <textarea id="hide-textarea" name="content" class="hidden"></textarea>
+    <div class="div-20"></div>
+	<div class="text-center">
+        <button type="button" class="btn btn-primary" onclick="submitFunc()">提交</button>
+    	<button type="button" class="btn btn-default" onclick="backIndexFunc()">取消</button>
+    </div>
+	<input type="hidden" name="id" value="$!{article.id}">
+</form>

@@ -1,0 +1,28 @@
+#parse("/common/init.vm")
+#set($page_setting = "/search/common/search-setting.vm")
+<div class="search-nav-div">
+	<div class="search-nav-item">
+        <span>查询&nbsp;&nbsp;&nbsp;<a href="${path}">$!{tag}</a>&nbsp;&nbsp;&nbsp;共&nbsp;$!{count}&nbsp;条记录</span>
+    </div>
+</div>
+
+<div class="search-bar-div">
+#foreach($!{article} in $!{page.result})
+	<blockquote>
+    	<a href="${path}/article/$!{article.id}">
+			<p>$!{article.title}</p>
+    	</a>
+        <p class="blockquote-summary"><span class="blockquote-summary-title">摘要：</span>$!{article.summary}</p>
+        <p>
+            <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+			#if($!{article.tags})
+				#foreach($!tag in $!article.tags.split(","))
+                     <a href="${path}/search/tags?tag=$!tag"><span class="article-label bg-grey">$!tag</span></a>
+				#end
+			#end
+    		<span class="blockquote-span">$!dateTool.format('yyyy / MM / dd',$!{article.publishTime})</span>
+		</p>
+	</blockquote>
+#end
+</div>
+#page()

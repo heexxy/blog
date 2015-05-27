@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bean头部 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd  
+            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd              
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+    
+    <!-- 激活@Controller模式 -->
+    <mvc:annotation-driven />
+    
+    <!-- 对包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 需要更改 -->
+    <context:component-scan base-package="com.he.webx" />
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+
+    <bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+    <property name="resourceLoaderPath">
+      <value>/WEB-INF/velocity/</value>
+    </property>
+    <property name="velocityProperties">
+      <props>
+        <prop key="input.encoding">UTF-8</prop>
+        <prop key="output.encoding">UTF-8</prop>
+        <prop key="contentType">text/html;charset=UTF-8</prop>
+        <prop key="velocimacro.library">common/macro/macro.vm,common/macro/page.vm</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+    <property name="cache" value="false"/>
+    <property name="prefix" value=""/>
+    <property name="dateToolAttribute" value="dateTool"/>
+    <property name="numberToolAttribute" value="numberTool"/>
+    <property name="contentType" value="text/html;charset=UTF-8" />
+    <property name="layoutUrl" value="layout/default.vm" />
+  </bean>
+</beans>

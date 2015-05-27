@@ -1,0 +1,5 @@
+<link type="text/css" rel="stylesheet" media="screen" href="${R}/css/common.css" />
+<link type="text/css" rel="stylesheet" media="screen" href="${R}/css/index.css" />
+<link type="text/css" rel="stylesheet" media="screen" href="${R}/plugin/bootstrap/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="${R}/plugin/flatUI/css/flat-ui.css" >
+

@@ -1,0 +1,13 @@
+#parse("/common/init.vm")
+#set($layout="/layout/blank.vm")
+<div class="center">
+    <p><img src="${R}/images/404.gif" width="520" height="320" /></p>
+	<h1 style="padding-top:20px">抱歉，这个页面已经被外星人绑架了</h1>
+    <p style="padding-top:20px">5秒钟后将带您返回地球</p>
+</div>
+	
+<script>
+window.setTimeout(function(){
+	window.location = path;
+},5000);
+</script>
